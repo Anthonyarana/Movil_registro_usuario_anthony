@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/imgUsuario"
+            android:layout_width="109dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/user" />
+
+        <TextView
+            android:id="@+id/lblTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Registro de Usuarios"
+            android:textColor="#4B9600"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgUsuario" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Nombres"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblTitulo"
+            app:startIconDrawable="@drawable/person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutApellido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Apellidos"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="@+id/layoutNombre"
+            app:layout_constraintStart_toStartOf="@+id/layoutNombre"
+            app:layout_constraintTop_toBottomOf="@+id/layoutNombre"
+            app:startIconDrawable="@drawable/person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutTipoDocumento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Tipo Documento"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="@+id/layoutApellido"
+            app:layout_constraintStart_toStartOf="@+id/layoutApellido"
+            app:layout_constraintTop_toBottomOf="@+id/layoutApellido"
+            app:startIconDrawable="@drawable/documento">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/spTipoDocumento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:simpleItems="@array/tipo_documento" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNumeroId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Número ID"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="@+id/layoutTipoDocumento"
+            app:layout_constraintStart_toStartOf="@+id/layoutTipoDocumento"
+            app:layout_constraintTop_toBottomOf="@+id/layoutTipoDocumento"
+            app:startIconDrawable="@drawable/documento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNumeroId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="10" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imgGenero"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/layoutNumeroId"
+            app:layout_constraintTop_toBottomOf="@+id/layoutNumeroId"
+            app:srcCompat="@drawable/genero" />
+
+        <TextView
+            android:id="@+id/lblGenero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Género"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imgGenero"
+            app:layout_constraintTop_toBottomOf="@+id/layoutNumeroId" />
+
+        <RadioGroup
+            android:id="@+id/rgGenero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/layoutNumeroId"
+            app:layout_constraintStart_toStartOf="@+id/layoutNumeroId"
+            app:layout_constraintTop_toBottomOf="@+id/imgGenero">
+
+            <RadioButton
+                android:id="@+id/rbMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/masculino"
+                android:text="Masculino" />
+
+            <RadioButton
+                android:id="@+id/rbFemenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/femenino"
+                android:text="Femenino" />
+
+            <RadioButton
+                android:id="@+id/rbOtro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otro" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imgCalendario"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/rgGenero"
+            app:layout_constraintTop_toBottomOf="@+id/rgGenero"
+            app:srcCompat="@drawable/calendario" />
+
+        <TextView
+            android:id="@+id/lblFechaNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Fecha Nacimiento"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imgCalendario"
+            app:layout_constraintTop_toBottomOf="@+id/rgGenero" />
+
+        <LinearLayout
+            android:id="@+id/contenedorFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/rgGenero"
+            app:layout_constraintStart_toStartOf="@+id/rgGenero"
+            app:layout_constraintTop_toBottomOf="@+id/imgCalendario">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:boxBackgroundMode="outline"
+                android:hint="Día">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/spDia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    app:simpleItems="@array/dias" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:boxBackgroundMode="outline"
+                android:hint="Mes">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/spMes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    app:simpleItems="@array/meses" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:boxBackgroundMode="outline"
+                android:hint="Año">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/spAnio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    app:simpleItems="@array/anios" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutTelefono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Teléfono"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="@+id/contenedorFecha"
+            app:layout_constraintStart_toStartOf="@+id/contenedorFecha"
+            app:layout_constraintTop_toBottomOf="@+id/contenedorFecha"
+            app:startIconDrawable="@android:drawable/ic_menu_call">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="Grabar"
+            android:textColor="#000000"
+            android:textColorHighlight="#8BC34A"
+            android:textColorHint="#8BC34A"
+            android:textColorLink="#8BC34A"
+            app:icon="@drawable/save"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/layoutTelefono"
+            app:layout_constraintStart_toStartOf="@+id/layoutTelefono"
+            app:layout_constraintTop_toBottomOf="@+id/layoutTelefono" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
